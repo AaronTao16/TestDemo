@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Brain Flux Result</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <script src="../static/js/bootstrap.min.js" type="application/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+</head>
+<body>
+<div>
+    <a href="result"><button type="submit" class="btn btn-default" style="text-decoration: none">Select Mean(CO(GT)) and Mean(NO2(GT))</button></a>
+</div>
+<table class="table table-striped" if="t1">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Date</th>
+        <th scope="col">CO(GT)</th>
+        <th scope="col">PT08.S1(CO)</th>
+        <th scope="col">NMHC(GT)</th>
+        <th scope="col">C6H6(GT)</th>
+        <th scope="col">PT08.S2(NMHC)</th>
+        <th scope="col">NOx(GT)</th>
+        <th scope="col">PT08.S3(NOx)</th>
+        <th scope="col">NO2(GT)</th>
+        <th scope="col">PT08.S4(NO2)</th>
+        <th scope="col">PT08.S5(O3)</th>
+        <th scope="col">T</th>
+        <th scope="col">RH</th>
+        <th scope="col">AH</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!--/*@thymesVar id="results" type=""*/-->
+    <tr th:each="res : ${results}">
+        <th scope="row" th:text="${res.getId()}"></th>
+        <td th:text="${res.getDate()}"></td>
+        <td th:text="${res.getCO_GT()}"></td>
+        <td th:text="${res.getPT08_S1_CO()}"></td>
+        <td th:text="${res.getNMHC_GT()}"></td>
+        <td th:text="${res.getC6H6_GT()}"></td>
+        <td th:text="${res.getPT08_S2_NMHC()}"></td>
+        <td th:text="${res.getNOx_GT()}"></td>
+        <td th:text="${res.getPT08_S3_NOx()}"></td>
+        <td th:text="${res.getNO2_GT()}"></td>
+        <td th:text="${res.getPT08_S4_NO2()}"></td>
+        <td th:text="${res.getPT08_S5_O3()}"></td>
+        <td th:text="${res.getT()}"></td>
+        <td th:text="${res.getRH()}"></td>
+        <td th:text="${res.getAH()}"></td>
+    </tr>
+    </tbody>
+</table>
+
+
+
+</body>
+</html>
